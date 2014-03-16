@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "XMLRPC.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    NSURL *URL = [NSURL URLWithString: @"http://192.168.1.132:8080/RPC2"];
+    XMLRPCRequest *request = [[XMLRPCRequest alloc] initWithURL: URL];
+    XMLRPCConnectionManager *manager = [XMLRPCConnectionManager sharedManager];
+    
+    [request setMethod: @"download_list" withParameter: nil];
+    
+    NSLog(@"Request body: %@", [request body]);
+    
+    [manager spawnConnectionWithXMLRPCRequest: request delegate: self];
+}
+
+- (void)request:(XMLRPCRequest *)request didReceiveResponse:(XMLRPCResponse *)response {
+    NSLog(@"%@", response);
+}
+
+- (void)request:(XMLRPCRequest *)request didFailWithError:(NSError *)error {
+    NSLog(@"%@", error);
 }
 
 - (void)didReceiveMemoryWarning

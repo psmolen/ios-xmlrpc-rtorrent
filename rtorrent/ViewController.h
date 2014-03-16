@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMLRPC.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <XMLRPCConnectionDelegate>
 
 @end
