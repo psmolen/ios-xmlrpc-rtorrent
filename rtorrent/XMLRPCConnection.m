@@ -44,15 +44,9 @@ static NSOperationQueue *parsingQueue;
 - (id)initWithXMLRPCRequest: (XMLRPCRequest *)request delegate: (id<XMLRPCConnectionDelegate>)delegate manager: (XMLRPCConnectionManager *)manager {
     self = [super init];
     if (self) {
-#if ! __has_feature(objc_arc)
-        myManager = [manager retain];
-        myRequest = [request retain];
-        myIdentifier = [[NSString stringByGeneratingUUID] retain];
-#else
         myManager = manager;
         myRequest = request;
         myIdentifier = [NSString stringByGeneratingUUID];
-#endif
         myData = [[NSMutableData alloc] init];
         
         myConnection = [[NSURLConnection alloc] initWithRequest: [request request] delegate: self startImmediately:NO];
@@ -60,21 +54,15 @@ static NSOperationQueue *parsingQueue;
                                 forMode:NSDefaultRunLoopMode];
         [myConnection start];
         
-#if ! __has_feature(objc_arc)
-        myDelegate = [delegate retain];
-#else
         myDelegate = delegate;
-#endif
-        
+
         if (myConnection) {
             NSLog(@"The connection, %@, has been established!", myIdentifier);
 
             [self performSelector:@selector(timeoutExpired) withObject:nil afterDelay:[myRequest timeout]];
         } else {
             NSLog(@"The connection, %@, could not be established!", myIdentifier);
-#if ! __has_feature(objc_arc)
-            [self release];
-#endif
+
             return nil;
         }
     }
@@ -86,21 +74,13 @@ static NSOperationQueue *parsingQueue;
 
 + (XMLRPCResponse *)sendSynchronousXMLRPCRequest: (XMLRPCRequest *)request error: (NSError **)error {
     NSHTTPURLResponse *response = nil;
-#if ! __has_feature(objc_arc)
-    NSData *data = [[[NSURLConnection sendSynchronousRequest: [request request] returningResponse: &response error: error] retain] autorelease];
-#else
     NSData *data = [NSURLConnection sendSynchronousRequest: [request request] returningResponse: &response error: error];
-#endif
     
     if (response) {
         NSInteger statusCode = [response statusCode];
         
         if ((statusCode < 400) && data) {
-#if ! __has_feature(objc_arc)
-            return [[[XMLRPCResponse alloc] initWithData: data] autorelease];
-#else
             return [[XMLRPCResponse alloc] initWithData: data];
-#endif
         }
     }
     
@@ -110,11 +90,7 @@ static NSOperationQueue *parsingQueue;
 #pragma mark -
 
 - (NSString *)identifier {
-#if ! __has_feature(objc_arc)
-    return [[myIdentifier retain] autorelease];
-#else
     return myIdentifier;
-#endif
 }
 
 #pragma mark -
@@ -129,21 +105,6 @@ static NSOperationQueue *parsingQueue;
     [myConnection cancel];
 
     [self invalidateTimer];
-}
-
-#pragma mark -
-
-- (void)dealloc {    
-#if ! __has_feature(objc_arc)
-    [myManager release];
-    [myRequest release];
-    [myIdentifier release];
-    [myData release];
-    [myConnection release];
-    [myDelegate release];
-    
-    [super dealloc];
-#endif
 }
 
 @end
@@ -181,12 +142,8 @@ static NSOperationQueue *parsingQueue;
 }
 
 - (void)connection: (NSURLConnection *)connection didFailWithError: (NSError *)error {
-#if ! __has_feature(objc_arc)
-    XMLRPCRequest *request = [[myRequest retain] autorelease];
-#else
-    XMLRPCRequest *request = myRequest;
-#endif
 
+    XMLRPCRequest *request = myRequest;
     NSLog(@"The connection, %@, failed with the following error: %@", myIdentifier, [error localizedDescription]);
 
     [self invalidateTimer];
@@ -215,16 +172,6 @@ static NSOperationQueue *parsingQueue;
     if (myData && ([myData length] > 0)) {
         NSBlockOperation *parsingOperation;
 
-#if ! __has_feature(objc_arc)
-        parsingOperation = [NSBlockOperation blockOperationWithBlock:^{
-            XMLRPCResponse *response = [[[XMLRPCResponse alloc] initWithData: myData] autorelease];
-            XMLRPCRequest *request = [[myRequest retain] autorelease];
-
-            [[NSOperationQueue mainQueue] addOperation: [NSBlockOperation blockOperationWithBlock:^{
-               [myDelegate request: request didReceiveResponse: response]; 
-            }]];
-        }];
-#else
         parsingOperation = [NSBlockOperation blockOperationWithBlock:^{
             XMLRPCResponse *response = [[XMLRPCResponse alloc] initWithData: myData];
             XMLRPCRequest *request = myRequest;
@@ -235,7 +182,6 @@ static NSOperationQueue *parsingQueue;
                 [myManager closeConnectionForIdentifier: myIdentifier];
             }]];
         }];
-#endif
         
         [[XMLRPCConnection parsingQueue] addOperation: parsingOperation];
     }

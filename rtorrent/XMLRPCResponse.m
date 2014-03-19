@@ -13,23 +13,14 @@
         XMLRPCEventBasedParser *parser = [[XMLRPCEventBasedParser alloc] initWithData: data];
         
         if (!parser) {
-#if ! __has_feature(objc_arc)
-            [self release];
-#endif
             return nil;
         }
     
         myBody = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
         myObject = [parser parse];
-#if ! __has_feature(objc_arc)
-        [myObject retain];
-#endif
-        
+
         isFault = [parser isFault];
-        
-#if ! __has_feature(objc_arc)
-        [parser release];
-#endif
+
     }
     
     return self;
@@ -87,15 +78,5 @@
 	return result;
 }
 
-#pragma mark -
-
-- (void)dealloc {
-#if ! __has_feature(objc_arc)
-    [myBody release];
-    [myObject release];
-    
-    [super dealloc];
-#endif
-}
 
 @end

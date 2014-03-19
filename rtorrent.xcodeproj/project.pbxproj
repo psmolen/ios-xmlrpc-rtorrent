@@ -30,6 +30,8 @@
 		43B824C518A82F9F00CD00A4 /* XMLRPCEventBasedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B824BA18A82F9F00CD00A4 /* XMLRPCEventBasedParserDelegate.m */; };
 		43B824C618A82F9F00CD00A4 /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B824BC18A82F9F00CD00A4 /* XMLRPCRequest.m */; };
 		43B824C718A82F9F00CD00A4 /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B824BE18A82F9F00CD00A4 /* XMLRPCResponse.m */; };
+		43D62E7618D63592006BC26B /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D62E7518D63592006BC26B /* Main-iPad.storyboard */; };
+		43D62E7918D637F3006BC26B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D62E7818D637F3006BC26B /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,9 @@
 		43B824BD18A82F9F00CD00A4 /* XMLRPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCResponse.h; sourceTree = "<group>"; };
 		43B824BE18A82F9F00CD00A4 /* XMLRPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCResponse.m; sourceTree = "<group>"; };
 		43B824C818A82FE800CD00A4 /* XMLRPCEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCEncoder.h; sourceTree = "<group>"; };
+		43D62E7518D63592006BC26B /* Main-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-iPad.storyboard"; sourceTree = "<group>"; };
+		43D62E7718D637F3006BC26B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		43D62E7818D637F3006BC26B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +151,8 @@
 				43B8249318A82CC900CD00A4 /* XMLRPC */,
 				43B8246D18A82CB900CD00A4 /* AppDelegate.h */,
 				43B8246E18A82CB900CD00A4 /* AppDelegate.m */,
+				43D62E7718D637F3006BC26B /* SettingsViewController.h */,
+				43D62E7818D637F3006BC26B /* SettingsViewController.m */,
 				43B8247018A82CB900CD00A4 /* Main.storyboard */,
 				43B8247318A82CB900CD00A4 /* ViewController.h */,
 				43B8247418A82CB900CD00A4 /* ViewController.m */,
@@ -215,6 +222,7 @@
 		43D62E7418D6343F006BC26B /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				43D62E7518D63592006BC26B /* Main-iPad.storyboard */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -298,6 +306,7 @@
 				43B8247718A82CB900CD00A4 /* Images.xcassets in Resources */,
 				43B8246918A82CB900CD00A4 /* InfoPlist.strings in Resources */,
 				43B8247218A82CB900CD00A4 /* Main.storyboard in Resources */,
+				43D62E7618D63592006BC26B /* Main-iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +337,7 @@
 				43B8246B18A82CB900CD00A4 /* main.m in Sources */,
 				43B824C018A82F9F00CD00A4 /* NSStringAdditions.m in Sources */,
 				43B824C218A82F9F00CD00A4 /* XMLRPCConnectionManager.m in Sources */,
+				43D62E7918D637F3006BC26B /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -77,30 +77,8 @@
 #pragma mark -
 
 - (void)setMethod: (NSString *)method withParameters: (NSArray *)parameters {
-#if ! __has_feature(objc_arc)
-    if (myMethod)    {
-        [myMethod release];
-    }
-    
-    if (!method) {
-        myMethod = nil;
-    } else {
-        myMethod = [method retain];
-    }
-    
-    if (myParameters) {
-        [myParameters release];
-    }
-    
-    if (!parameters) {
-        myParameters = nil;
-    } else {
-        myParameters = [parameters retain];
-    }
-#else
 	myMethod = method;
 	myParameters = parameters;
-#endif
 }
 
 #pragma mark -
@@ -113,16 +91,6 @@
     return myParameters;
 }
 
-#pragma mark -
-
-- (void)dealloc {
-#if ! __has_feature(objc_arc)
-    [myMethod release];
-    [myParameters release];
-    
-    [super dealloc];
-#endif
-}
 
 @end
 
@@ -151,11 +119,7 @@
         return [self encodeArray: object];
     } else if ([object isKindOfClass: [NSDictionary class]]) {
         return [self encodeDictionary: object];
-#if ! __has_feature(objc_arc)
-    } else if (((CFBooleanRef)object == kCFBooleanTrue) || ((CFBooleanRef)object == kCFBooleanFalse)) {
-#else
     } else if (((__bridge CFBooleanRef)object == kCFBooleanTrue) || ((__bridge CFBooleanRef)object == kCFBooleanFalse)) {
-#endif
         return [self encodeBoolean: (CFBooleanRef)object];
     } else if ([object isKindOfClass: [NSNumber class]]) {
         return [self encodeNumber: object];

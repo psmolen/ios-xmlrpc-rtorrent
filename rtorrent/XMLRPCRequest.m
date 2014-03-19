@@ -16,9 +16,6 @@ static const NSTimeInterval DEFAULT_TIMEOUT = 240;
         }
         
         myXMLEncoder = encoder;
-#if ! __has_feature(objc_arc)
-        [myXMLEncoder retain];
-#endif
 
         myTimeout = DEFAULT_TIMEOUT;
     }
@@ -27,11 +24,7 @@ static const NSTimeInterval DEFAULT_TIMEOUT = 240;
 }
 
 - (id)initWithURL: (NSURL *)URL {
-#if ! __has_feature(objc_arc)
-    return [self initWithURL:URL withEncoder:[[[XMLRPCDefaultEncoder alloc] init] autorelease]];
-#else
     return [self initWithURL:URL withEncoder:[[XMLRPCDefaultEncoder alloc] init]];
-#endif
 }
 
 #pragma mark -
@@ -63,13 +56,7 @@ static const NSTimeInterval DEFAULT_TIMEOUT = 240;
 - (void)setEncoder:(id<XMLRPCEncoder>)encoder {
     NSString *method = [myXMLEncoder method];
     NSArray *parameters = [myXMLEncoder parameters];
-#if ! __has_feature(objc_arc)
-    [myXMLEncoder release];
-    
-    myXMLEncoder = [encoder retain];
-#else
     myXMLEncoder = encoder;
-#endif
     
     [myXMLEncoder setMethod: method withParameters: parameters];
 }
@@ -173,23 +160,7 @@ static const NSTimeInterval DEFAULT_TIMEOUT = 240;
 }
 
 - (void) setExtra:(id) extraObject {
-#if ! __has_feature(objc_arc)
-    [extra release];
-    extra = [extraObject retain];
-#else
     extra = extraObject;
-#endif
-}
-
-#pragma mark -
-
-- (void)dealloc {
-#if ! __has_feature(objc_arc)
-    [myRequest release];
-    [myXMLEncoder release];
-    
-    [super dealloc];
-#endif
 }
 
 @end
