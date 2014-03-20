@@ -74,13 +74,15 @@ static NSOperationQueue *parsingQueue;
 
 + (XMLRPCResponse *)sendSynchronousXMLRPCRequest: (XMLRPCRequest *)request error: (NSError **)error {
     NSHTTPURLResponse *response = nil;
+
     NSData *data = [NSURLConnection sendSynchronousRequest: [request request] returningResponse: &response error: error];
-    
+
     if (response) {
         NSInteger statusCode = [response statusCode];
-        
         if ((statusCode < 400) && data) {
             return [[XMLRPCResponse alloc] initWithData: data];
+        } else {
+            *error = [NSError errorWithDomain:@"world" code:500 userInfo:@{@"response":response}];
         }
     }
     
