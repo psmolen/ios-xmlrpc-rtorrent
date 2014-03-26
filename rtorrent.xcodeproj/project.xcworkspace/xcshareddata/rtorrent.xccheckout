@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BC5C6172-EF1D-41A5-9CDE-7133058E9DDE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>rtorrent</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>75CCA4E9-19B4-456B-A50E-D3BC8319B6A2</key>
+		<string>ssh://github.com/psmolen/ios-xmlrpc-rtorrent.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>rtorrent.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>75CCA4E9-19B4-456B-A50E-D3BC8319B6A2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/psmolen/ios-xmlrpc-rtorrent.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>75CCA4E9-19B4-456B-A50E-D3BC8319B6A2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>75CCA4E9-19B4-456B-A50E-D3BC8319B6A2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>rtorrent</string>
+		</dict>
+	</array>
+</dict>
+</plist>

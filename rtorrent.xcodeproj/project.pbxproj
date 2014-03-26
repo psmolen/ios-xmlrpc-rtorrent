@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		43624E1F18DA682000F12278 /* PSXMLRPCConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43624E1E18DA682000F12278 /* PSXMLRPCConnectionManager.m */; };
 		43624E2118DA8D8800F12278 /* methods in Resources */ = {isa = PBXBuildFile; fileRef = 43624E2018DA8D8800F12278 /* methods */; };
+		43624E2418DDEE5700F12278 /* TorrentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43624E2318DDEE5700F12278 /* TorrentTableViewCell.m */; };
+		43624E2718DDF22B00F12278 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 43624E2618DDF22B00F12278 /* Torrent.m */; };
+		4370890918DE01A9008A0D37 /* RTorrentXMLRPCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4370890818DE01A9008A0D37 /* RTorrentXMLRPCClient.m */; };
 		43B8245F18A82CB900CD00A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B8245E18A82CB900CD00A4 /* Foundation.framework */; };
 		43B8246118A82CB900CD00A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B8246018A82CB900CD00A4 /* CoreGraphics.framework */; };
 		43B8246318A82CB900CD00A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B8246218A82CB900CD00A4 /* UIKit.framework */; };
@@ -16,7 +19,7 @@
 		43B8246B18A82CB900CD00A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B8246A18A82CB900CD00A4 /* main.m */; };
 		43B8246F18A82CB900CD00A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B8246E18A82CB900CD00A4 /* AppDelegate.m */; };
 		43B8247218A82CB900CD00A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43B8247018A82CB900CD00A4 /* Main.storyboard */; };
-		43B8247518A82CB900CD00A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B8247418A82CB900CD00A4 /* ViewController.m */; };
+		43B8247518A82CB900CD00A4 /* TorrentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B8247418A82CB900CD00A4 /* TorrentListViewController.m */; };
 		43B8247718A82CB900CD00A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43B8247618A82CB900CD00A4 /* Images.xcassets */; };
 		43B8247E18A82CB900CD00A4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B8247D18A82CB900CD00A4 /* XCTest.framework */; };
 		43B8247F18A82CB900CD00A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B8245E18A82CB900CD00A4 /* Foundation.framework */; };
@@ -50,6 +53,12 @@
 		43624E1D18DA682000F12278 /* PSXMLRPCConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSXMLRPCConnectionManager.h; sourceTree = "<group>"; };
 		43624E1E18DA682000F12278 /* PSXMLRPCConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSXMLRPCConnectionManager.m; sourceTree = "<group>"; };
 		43624E2018DA8D8800F12278 /* methods */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = methods; sourceTree = "<group>"; };
+		43624E2218DDEE5700F12278 /* TorrentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentTableViewCell.h; sourceTree = "<group>"; };
+		43624E2318DDEE5700F12278 /* TorrentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentTableViewCell.m; sourceTree = "<group>"; };
+		43624E2518DDF22B00F12278 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
+		43624E2618DDF22B00F12278 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
+		4370890718DE01A9008A0D37 /* RTorrentXMLRPCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTorrentXMLRPCClient.h; sourceTree = "<group>"; };
+		4370890818DE01A9008A0D37 /* RTorrentXMLRPCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTorrentXMLRPCClient.m; sourceTree = "<group>"; };
 		43B8245B18A82CB900CD00A4 /* rtorrent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rtorrent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43B8245E18A82CB900CD00A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		43B8246018A82CB900CD00A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,8 +70,8 @@
 		43B8246D18A82CB900CD00A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		43B8246E18A82CB900CD00A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		43B8247118A82CB900CD00A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		43B8247318A82CB900CD00A4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		43B8247418A82CB900CD00A4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		43B8247318A82CB900CD00A4 /* TorrentListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorrentListViewController.h; sourceTree = "<group>"; };
+		43B8247418A82CB900CD00A4 /* TorrentListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorrentListViewController.m; sourceTree = "<group>"; };
 		43B8247618A82CB900CD00A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		43B8247C18A82CB900CD00A4 /* rtorrentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rtorrentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43B8247D18A82CB900CD00A4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -119,6 +128,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4370890A18DE01B5008A0D37 /* XMLRPC Additions */ = {
+			isa = PBXGroup;
+			children = (
+				43624E1D18DA682000F12278 /* PSXMLRPCConnectionManager.h */,
+				43624E1E18DA682000F12278 /* PSXMLRPCConnectionManager.m */,
+				4370890718DE01A9008A0D37 /* RTorrentXMLRPCClient.h */,
+				4370890818DE01A9008A0D37 /* RTorrentXMLRPCClient.m */,
+			);
+			name = "XMLRPC Additions";
+			sourceTree = "<group>";
+		};
+		4370890B18DE01D5008A0D37 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				43B8247318A82CB900CD00A4 /* TorrentListViewController.h */,
+				43B8247418A82CB900CD00A4 /* TorrentListViewController.m */,
+				43D62E7718D637F3006BC26B /* SettingsViewController.h */,
+				43D62E7818D637F3006BC26B /* SettingsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4370890C18DE01DF008A0D37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43624E2518DDF22B00F12278 /* Torrent.h */,
+				43624E2618DDF22B00F12278 /* Torrent.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4370890D18DE0212008A0D37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43624E2218DDEE5700F12278 /* TorrentTableViewCell.h */,
+				43624E2318DDEE5700F12278 /* TorrentTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		43B8245218A82CB900CD00A4 = {
 			isa = PBXGroup;
 			children = (
@@ -152,15 +201,15 @@
 		43B8246418A82CB900CD00A4 /* rtorrent */ = {
 			isa = PBXGroup;
 			children = (
-				43D62E7418D6343F006BC26B /* iPad */,
 				43B8249318A82CC900CD00A4 /* XMLRPC */,
+				4370890A18DE01B5008A0D37 /* XMLRPC Additions */,
+				4370890B18DE01D5008A0D37 /* ViewControllers */,
+				4370890C18DE01DF008A0D37 /* Models */,
+				4370890D18DE0212008A0D37 /* Views */,
 				43B8246D18A82CB900CD00A4 /* AppDelegate.h */,
 				43B8246E18A82CB900CD00A4 /* AppDelegate.m */,
-				43D62E7718D637F3006BC26B /* SettingsViewController.h */,
-				43D62E7818D637F3006BC26B /* SettingsViewController.m */,
 				43B8247018A82CB900CD00A4 /* Main.storyboard */,
-				43B8247318A82CB900CD00A4 /* ViewController.h */,
-				43B8247418A82CB900CD00A4 /* ViewController.m */,
+				43D62E7518D63592006BC26B /* Main-iPad.storyboard */,
 				43B8247618A82CB900CD00A4 /* Images.xcassets */,
 				43B8246518A82CB900CD00A4 /* Supporting Files */,
 			);
@@ -221,18 +270,8 @@
 				43B824BC18A82F9F00CD00A4 /* XMLRPCRequest.m */,
 				43B824BD18A82F9F00CD00A4 /* XMLRPCResponse.h */,
 				43B824BE18A82F9F00CD00A4 /* XMLRPCResponse.m */,
-				43624E1D18DA682000F12278 /* PSXMLRPCConnectionManager.h */,
-				43624E1E18DA682000F12278 /* PSXMLRPCConnectionManager.m */,
 			);
 			name = XMLRPC;
-			sourceTree = "<group>";
-		};
-		43D62E7418D6343F006BC26B /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				43D62E7518D63592006BC26B /* Main-iPad.storyboard */,
-			);
-			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,10 +373,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43624E2418DDEE5700F12278 /* TorrentTableViewCell.m in Sources */,
 				43B824C518A82F9F00CD00A4 /* XMLRPCEventBasedParserDelegate.m in Sources */,
+				43624E2718DDF22B00F12278 /* Torrent.m in Sources */,
 				43B824C618A82F9F00CD00A4 /* XMLRPCRequest.m in Sources */,
 				43B824C418A82F9F00CD00A4 /* XMLRPCEventBasedParser.m in Sources */,
-				43B8247518A82CB900CD00A4 /* ViewController.m in Sources */,
+				43B8247518A82CB900CD00A4 /* TorrentListViewController.m in Sources */,
 				43B824BF18A82F9F00CD00A4 /* NSData+Base64.m in Sources */,
 				43B8246F18A82CB900CD00A4 /* AppDelegate.m in Sources */,
 				43B824C118A82F9F00CD00A4 /* XMLRPCConnection.m in Sources */,
@@ -347,6 +388,7 @@
 				43624E1F18DA682000F12278 /* PSXMLRPCConnectionManager.m in Sources */,
 				43B824C018A82F9F00CD00A4 /* NSStringAdditions.m in Sources */,
 				43B824C218A82F9F00CD00A4 /* XMLRPCConnectionManager.m in Sources */,
+				4370890918DE01A9008A0D37 /* RTorrentXMLRPCClient.m in Sources */,
 				43D62E7918D637F3006BC26B /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

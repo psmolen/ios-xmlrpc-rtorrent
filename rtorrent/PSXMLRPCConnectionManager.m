@@ -14,17 +14,11 @@
 
 + (void)asyncRequest:(XMLRPCRequest *)request success:(void(^)(XMLRPCResponse *))successBlock_ failure:(void(^)(XMLRPCResponse *,NSError *))failureBlock_
 {
-    [NSThread detachNewThreadSelector:@selector(backgroundSync:) toTarget:self
-                           withObject:[NSDictionary dictionaryWithObjectsAndKeys:
-                                       request,@"request",
-                                       successBlock_,@"success",
-                                       failureBlock_,@"failure",
-                                       nil]];
+    [self performSelectorInBackground:@selector(backgroundSync:) withObject:@{@"request": request, @"success": successBlock_, @"failure": failureBlock_}];
 }
 
 #pragma mark Private
 + (void)backgroundSync:(NSDictionary *)dictionary {
-    
     void(^success)(XMLRPCResponse *) = [dictionary objectForKey:@"success"];
     void(^failure)(XMLRPCResponse *,NSError *) = [dictionary objectForKey:@"failure"];
     XMLRPCRequest *request = [dictionary objectForKey:@"request"];

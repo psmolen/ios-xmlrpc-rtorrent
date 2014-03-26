@@ -11,6 +11,7 @@
 @class XMLRPCConnection, XMLRPCRequest, XMLRPCResponse;
 
 @interface PSXMLRPCConnectionManager : NSObject
+
 + (void)asyncRequest:(XMLRPCRequest *)request success:(void(^)(XMLRPCResponse *))successBlock_ failure:(void(^)(XMLRPCResponse *, NSError *))failureBlock_;
 
 @end
