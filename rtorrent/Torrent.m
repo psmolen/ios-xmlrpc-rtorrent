@@ -17,7 +17,7 @@
     self = [super init];
     if (self) {
         _torrentHash = hash;
-
+        [self prepare];
     }
     
     return self;
@@ -83,6 +83,13 @@
     return _downloadRate;
 }
 
+- (void)prepare {
+    [self completedBytes];
+    [self name];
+    [self totalSize];
+    [self downloadRate];
+    [self updateTorrent];
+}
 
 - (void)updateTorrent {
    
