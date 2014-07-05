@@ -1,0 +1,13 @@
+PODS:
+  - NSData+Base64 (1.0.0)
+  - xmlrpc (2.3.3):
+    - NSData+Base64 (~> 1.0.0)
+
+DEPENDENCIES:
+  - xmlrpc
+
+SPEC CHECKSUMS:
+  NSData+Base64: aae92a2e3f0bd88b29fe6093551ded3f5c062548
+  xmlrpc: 7f91bbd8600d2c9a4cc5f34d32753ba5cb9c3a65
+
+COCOAPODS: 0.32.1

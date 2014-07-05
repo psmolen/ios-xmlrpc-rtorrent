@@ -12,4 +12,5 @@
 @property (nonatomic, weak) IBOutlet UITableView *torrentList;
 
 - (IBAction)addTorrent:(id)sender;
+- (IBAction)showSettings:(id)sender;
 @end

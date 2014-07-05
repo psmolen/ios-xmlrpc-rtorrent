@@ -10,4 +10,5 @@
 
 @interface SettingsViewController : UIViewController
 
+- (IBAction)hideSettings:(id)sender;
 @end

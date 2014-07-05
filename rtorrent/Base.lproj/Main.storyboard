@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HOx-CH-lYt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HOx-CH-lYt">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -64,6 +64,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Torrents" id="fSD-Pw-ueU">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="compose" id="hPD-yT-okq">
+                            <connections>
+                                <action selector="showSettings:" destination="vXZ-lx-hvc" id="sgl-Ju-rFN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NcT-5f-zKa">
                             <connections>
                                 <action selector="addTorrent:" destination="vXZ-lx-hvc" id="Hf3-to-vpr"/>
@@ -72,11 +77,37 @@
                     </navigationItem>
                     <connections>
                         <outlet property="torrentList" destination="gO1-hW-mKZ" id="XnS-BJ-S8M"/>
+                        <segue destination="76A-rX-Y7h" kind="modal" identifier="Settings" modalTransitionStyle="flipHorizontal" id="khw-fT-SMx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="924" y="35"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="62l-fR-VHb">
+            <objects>
+                <viewController id="auS-0N-tgv" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G5n-e1-jOh"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ZV-g0-PXL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EbZ-7X-dfl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="vVx-ue-Fwm">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="bjY-cW-wqH">
+                            <connections>
+                                <action selector="hideSettings:" destination="auS-0N-tgv" id="pSD-SI-BNn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQQ-Bd-FUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309" y="-621"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NPO-Ob-9TT">
@@ -95,6 +126,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gp0-nO-Sj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="537" y="35"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nFg-nP-hKQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="76A-rX-Y7h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kqM-2k-wh2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="auS-0N-tgv" kind="relationship" relationship="rootViewController" id="N5O-mR-xmK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKe-PO-kjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="-621"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

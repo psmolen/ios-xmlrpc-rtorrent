@@ -63,6 +63,9 @@
     [alertView show];
 }
 
+- (IBAction)showSettings:(id)sender {
+    [self performSegueWithIdentifier: @"Settings" sender: self];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_torrents count];
