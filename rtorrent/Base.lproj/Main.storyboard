@@ -64,7 +64,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Torrents" id="fSD-Pw-ueU">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="compose" id="hPD-yT-okq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="hPD-yT-okq">
                             <connections>
                                 <action selector="showSettings:" destination="vXZ-lx-hvc" id="sgl-Ju-rFN"/>
                             </connections>
@@ -95,15 +95,37 @@
                     <view key="view" contentMode="scaleToFill" id="EbZ-7X-dfl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfA-MY-Phf">
+                                <rect key="frame" x="20" y="88" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qcy-cC-0EE">
+                                <rect key="frame" x="112" y="84" width="188" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qp-9j-cOs">
+                                <rect key="frame" x="143" y="226" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSettings:" destination="auS-0N-tgv" eventType="touchUpInside" id="l3A-Af-mpJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="vVx-ue-Fwm">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="bjY-cW-wqH">
-                            <connections>
-                                <action selector="hideSettings:" destination="auS-0N-tgv" id="pSD-SI-BNn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="vVx-ue-Fwm"/>
+                    <connections>
+                        <outlet property="serverAddress" destination="qcy-cC-0EE" id="qQT-Zj-u8B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQQ-Bd-FUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

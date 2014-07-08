@@ -16,6 +16,7 @@ typedef void (^RTorrentXMLRPCClientFailure)(XMLRPCResponse *response, NSError *e
 @property (nonatomic, strong) NSURL *baseURL;
 + (instancetype)sharedClient;
 - (instancetype)initWithBaseURL:(NSURL *)url;
+- (void)updateBaseURL:(NSURL *)url;
 
 - (void)downloadList:(RTorrentXMLRPCClientSuccess)success failure:(RTorrentXMLRPCClientFailure)failure;
 

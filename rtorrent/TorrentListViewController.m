@@ -24,15 +24,25 @@
     [super viewDidLoad];
     
     _torrents = [NSMutableArray array];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(updateTorrentList) userInfo:nil repeats:YES];
+    [self startTimer];
     
 }
 
-- (void)updateTorrentList {
+- (void)startTimer {
+    if (![_timer isValid]) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(updateTorrentList) userInfo:nil repeats:YES];
+    }
+}
 
+- (void)updateTorrents {
     for (Torrent *torrent in _torrents) {
         [torrent updateTorrent];
     }
+}
+
+- (void)updateTorrentList {
+    NSLog(@"download");
+    [self updateTorrents];
     
     [[RTorrentXMLRPCClient sharedClient] downloadList:^(XMLRPCResponse *response) {
         
@@ -63,9 +73,36 @@
     [alertView show];
 }
 
+#pragma mark Settings
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"Settings"]) {
+        UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+        SettingsViewController *vc = [[navigationController viewControllers] lastObject];
+        vc.delegate = self;
+    }
+}
+
 - (IBAction)showSettings:(id)sender {
     [self performSegueWithIdentifier: @"Settings" sender: self];
 }
+
+- (void)settingsSaved {
+    [self updateClientURL];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self startTimer];
+}
+
+- (void)updateClientURL {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults stringForKey:SERVER_ADDRESS]) {
+        [[RTorrentXMLRPCClient sharedClient] updateBaseURL:[NSURL URLWithString:[defaults stringForKey:SERVER_ADDRESS]]];
+    }
+    
+}
+
+#pragma mark UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_torrents count];
@@ -102,6 +139,8 @@
         
     }
 }
+
+#pragma mark UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {

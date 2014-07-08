@@ -24,11 +24,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults stringForKey:SERVER_ADDRESS]) {
+        self.serverAddress.text = [defaults stringForKey:SERVER_ADDRESS];
+    }
 }
 
-- (IBAction)hideSettings:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)saveSettings:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:self.serverAddress.text forKey:SERVER_ADDRESS];
+    [defaults synchronize];
+    [self.delegate settingsSaved];
 }
 
 @end

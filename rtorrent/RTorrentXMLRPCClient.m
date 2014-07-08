@@ -9,8 +9,6 @@
 #import "RTorrentXMLRPCClient.h"
 #import "XMLRPC.h"
 
-static NSString * const XMLRPCBaseURL = @"http://192.168.1.132:8080/RPC2";
-
 @implementation RTorrentXMLRPCClient
 
 
@@ -18,7 +16,14 @@ static NSString * const XMLRPCBaseURL = @"http://192.168.1.132:8080/RPC2";
     static RTorrentXMLRPCClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[RTorrentXMLRPCClient alloc] initWithBaseURL:[NSURL URLWithString:XMLRPCBaseURL]];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        if ([defaults stringForKey:SERVER_ADDRESS]) {
+            _sharedClient = [[RTorrentXMLRPCClient alloc] initWithBaseURL:[NSURL URLWithString:[defaults stringForKey:SERVER_ADDRESS]]];
+        }
+        
+        
 
     });
     
@@ -34,6 +39,10 @@ static NSString * const XMLRPCBaseURL = @"http://192.168.1.132:8080/RPC2";
     self.baseURL = url;
     
     return self;
+}
+
+- (void)updateBaseURL:(NSURL *)url {
+    self.baseURL = url;
 }
 
 - (void)downloadList:(RTorrentXMLRPCClientSuccess)success failure:(RTorrentXMLRPCClientFailure)failure {

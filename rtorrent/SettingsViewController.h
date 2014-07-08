@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SettingsViewControllerDelegate
+@required
+-(void)settingsSaved;
+
+@end
+
 @interface SettingsViewController : UIViewController
 
-- (IBAction)hideSettings:(id)sender;
+@property (nonatomic, weak) IBOutlet UITextField *serverAddress;
+@property (nonatomic, assign) id delegate;
+
+- (IBAction)saveSettings:(id)sender;
 @end
